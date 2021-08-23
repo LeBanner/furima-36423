@@ -4,16 +4,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| password           | string | null: false |
-| family_name        | string | null: false |
-| first_name         | string | null: false |
-| family_name_kana   | string | null: false |
-| first_name_kana    | string | null: false |
-| birthday           | date   | null: false |
+| Column             | Type   | Options      |
+| ------------------ | ------ | ------------ |
+| nickname           | string | null: false  |
+| email              | string | unique: true |
+| password           | string | null: false  |
+| family_name        | string | null: false  |
+| first_name         | string | null: false  |
+| family_name_kana   | string | null: false  |
+| first_name_kana    | string | null: false  |
+| birthday           | date   | null: false  |
 
 ### Association
 
@@ -26,7 +26,6 @@
 
 | Column             | Type    | Options                           |
 | ------------------ | ------- | --------------------------------- |
-| images             | string  | null: false                       |
 | name               | string  | null: false                       |
 | information        | text    | null: false                       |
 | category_id        | integer | null: false                       |
@@ -49,7 +48,7 @@
 | Column             | Type    | Options                           |
 | ------------------ | ------- | --------------------------------- |
 | post               | string  | null: false                       |
-| prefecture         | integer | null: false                       |
+| place_id           | integer | null: false                       |
 | city               | string  | null: false                       |
 | address            | string  | null: false                       |
 | building           | string  | null: false                       |
