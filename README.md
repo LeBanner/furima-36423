@@ -4,16 +4,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options      |
-| ------------------ | ------ | ------------ |
-| nickname           | string | null: false  |
-| email              | string | unique: true |
-| password           | string | null: false  |
-| family_name        | string | null: false  |
-| first_name         | string | null: false  |
-| family_name_kana   | string | null: false  |
-| first_name_kana    | string | null: false  |
-| birthday           | date   | null: false  |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false  　　　　　　   |
+| email              | string | null: false, unique: true |
+| password           | string | null: false               |
+| family_name        | string | null: false               |
+| first_name         | string | null: false               |
+| family_name_kana   | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -71,5 +71,5 @@ belongs_to : purchase
 ### Association
 
 belongs_to : user
-belongs_to : purchase
+belongs_to : item
 has_one    : transport
