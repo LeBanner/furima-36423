@@ -14,6 +14,6 @@ class User < ApplicationRecord
      validates :first_name_kana
    end
    validates :birthday
-   validates :password,:password_confirmation,length:{minimum:6},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/}
+   validates :password,:password_confirmation,length:{minimum:6},format:{with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
   end
 end
