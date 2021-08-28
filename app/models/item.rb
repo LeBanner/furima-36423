@@ -10,20 +10,18 @@ class Item < ApplicationRecord
   belongs_to :schedule
 
   with_options presence: true do
-   validates :image  
-   validates :name 
-   validates :information
-   validates :price
+    validates :image
+    validates :name
+    validates :information
+    validates :price,
+              numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'out of setting range' }, format: { with: /\A[0-9]+\z/ }
 
-   with_options  numericality: { other_than: 1 } do
-    validates :category_id
-    validates :status_id
-    validates :postage_id
-    validates :place_id
-    validates :schedule_id
-   end
-  end 
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+      validates :status_id
+      validates :postage_id
+      validates :place_id
+      validates :schedule_id
+    end
+  end
 end
-
-
-
