@@ -1,7 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
+  before_action :item_find, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @purchase_transport = PurchaseTransport.new
     if current_user.id == @item.user_id 
       redirect_to root_path
@@ -11,7 +12,6 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_transport = PurchaseTransport.new(purchase_params)
     if @purchase_transport.valid?
       pay_item
@@ -37,6 +37,9 @@ class PurchasesController < ApplicationController
       currency: 'jpy'
     )
   end
+  def item_find
+    @item = Item.find(params[:item_id])
+  end  
 end
 
 
